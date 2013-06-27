@@ -11,9 +11,12 @@
 
 name=proxy
 
-user="${1:username}"
-host="${2:sshserver}"
-port=${3:22}
+sshserver="$2"
+user="${sshserver%%@*}"
+server="${sshserver##*@}"
+  host="${server%%:*}"
+  port=${server##*:}
+  port=${port:-22}
 
 pidFile="$HOME"/.local/var/run/$name
 mkdir -p "$(dirname "$pidFile")"
