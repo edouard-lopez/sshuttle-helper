@@ -15,15 +15,15 @@ user="${1:username}"
 host="${2:sshserver}"
 port=${3:22}
 
-pid_file=~/.local/var/run/$name
-mkdir -p $(dirname $pid_file)
+pidFile="$HOME"/.local/var/run/$name
+mkdir -p "$(dirname "$pidFile")"
 
 # Arrêt du service
 function stop {
-  if [ -f $pid_file ] ; then
+  if [ -f "$pidFile" ] ; then
     echo -n "Arrêt de $name..."
-    sudo kill -9 $(cat $pid_file)
-    sudo rm $pid_file
+    sudo kill -9 $(cat "$pidFile")
+    sudo rm "$pidFile"
     echo "OK"
   fi
 }
@@ -31,7 +31,7 @@ function stop {
 # Démarrage du service
 function start {
   echo -n "Démarrage de $name..."
-  sudo sshuttle -r $user@$host:$port 0/0 --dns -D --pidfile $pid_file
+  sudo sshuttle -r $user@$host:$port 0/0 --dns -D --pidfile "$pidFile"
   echo "OK"
 }
 
