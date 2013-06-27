@@ -48,6 +48,6 @@ case $1 in
     start
     ;;
     *)
-    echo "usage: $(basename $0) start|stop"
+    echo "usage: $(basename $0) start[ username server [port]]|stop "
     exit 1
 esac
