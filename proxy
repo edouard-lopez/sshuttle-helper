@@ -23,16 +23,17 @@ function stop {
   if [[ -f "$pidFile" ]] ; then
     echo -n "Stopping $name..."
     kill -9 $(cat "$pidFile")
-    rm "$pidFile"
-    echo "OK"
+    rm "$pidFile" && echo "OK"
   fi
 }
 
 # Démarrage du service
 function start {
   echo -n "Starting $name..."
-  sshuttle -r $user@$host:$port 0/0 --dns -D --pidfile "$pidFile"
-  echo "OK"
+  sshuttle \
+    -r $user@$host:$port 0/0 \
+    --dns -D \
+    --pidfile "$pidFile" && echo "OK"
 }
 
 # commandes
