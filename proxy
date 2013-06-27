@@ -24,7 +24,7 @@ mkdir -p "$(dirname "$pidFile")"
 # Arrêt du service
 function stop {
   if [[ -f "$pidFile" ]] ; then
-    echo -n "Stopping $name..."
+    echo "Stopping $name..."
     kill -9 $(cat "$pidFile")
     rm "$pidFile" && echo "OK"
   fi
@@ -35,7 +35,7 @@ function start {
   # malformed ssh address
   [[ "$sshserver" != *@* || -z "$user" || -z "$host" ]] && usage
 
-  echo -n "Starting $name..."
+  echo "Starting $name..."
   sshuttle \
     -r $user@$host:$port 0/0 \
     --dns -D \
