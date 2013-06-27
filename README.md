@@ -27,7 +27,7 @@ Or from sources (on [Github](https://github.com/apenwarr/sshuttle)):
 
 Quite simple :
 
-    ./proxy.sh start username server port
+    sudo proxy start username server port
 
 **Done**.
 

@@ -3,7 +3,7 @@
 #   Automatic proxy opening based on sshuttle
 #
 # USAGE
-#	  proxy start username server port
+#	  sudo proxy start username server port
 #
 # AUTHOR
 # 	Credit for the original script go to Salem Harrache's article:
@@ -22,8 +22,8 @@ mkdir -p "$(dirname "$pidFile")"
 function stop {
   if [[ -f "$pidFile" ]] ; then
     echo -n "Arrêt de $name..."
-    sudo kill -9 $(cat "$pidFile")
-    sudo rm "$pidFile"
+    kill -9 $(cat "$pidFile")
+    rm "$pidFile"
     echo "OK"
   fi
 }
@@ -31,7 +31,7 @@ function stop {
 # Démarrage du service
 function start {
   echo -n "Démarrage de $name..."
-  sudo sshuttle -r $user@$host:$port 0/0 --dns -D --pidfile "$pidFile"
+  sshuttle -r $user@$host:$port 0/0 --dns -D --pidfile "$pidFile"
   echo "OK"
 }
 
