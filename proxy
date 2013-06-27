@@ -32,6 +32,9 @@ function stop {
 
 # Démarrage du service
 function start {
+  # malformed ssh address
+  [[ "$sshserver" != *@* || -z "$user" || -z "$host" ]] && usage
+
   echo -n "Starting $name..."
   sshuttle \
     -r $user@$host:$port 0/0 \
