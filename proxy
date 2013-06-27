@@ -21,7 +21,7 @@ mkdir -p "$(dirname "$pidFile")"
 # Arrêt du service
 function stop {
   if [[ -f "$pidFile" ]] ; then
-    echo -n "Arrêt de $name..."
+    echo -n "Stopping $name..."
     kill -9 $(cat "$pidFile")
     rm "$pidFile"
     echo "OK"
@@ -30,7 +30,7 @@ function stop {
 
 # Démarrage du service
 function start {
-  echo -n "Démarrage de $name..."
+  echo -n "Starting $name..."
   sshuttle -r $user@$host:$port 0/0 --dns -D --pidfile "$pidFile"
   echo "OK"
 }
