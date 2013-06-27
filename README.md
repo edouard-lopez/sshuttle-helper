@@ -23,22 +23,24 @@ Or from sources (on [Github](https://github.com/apenwarr/sshuttle)):
     cd sshuttle
     ./sshuttle -r [...]
 
+# Setup
+
+You will need to add this script's directory to your `$PATH` (in your `~/.bashrc` or `~/.zshrc`) as follows:
+
+    PATH="$PATH":/path/to/sshuttle-helper-dir
+
+Make it available as root
+
+    sudo ln -s /path/to/sshuttle-helper-dir/proxy /usr/local/sbin/
+
 # Usage
 
 Quite simple :
 
-    sudo proxy start username server port
+    sudo proxy start username@server[:port]
+    # default port is 22
 
 **Done**.
-
-`Note:` you can add this directory to your `$PATH` (in your `~/.bashrc` or `~/.zshrc`) as follow :
-
-    PATH=$PATH:/path/to/sshuttle-helper-dir
-
-Bon, peut-être que vous voulez automatiser le lancement du proxy via un petit script ? pourquoi pas !
-
-Je vous fais partager mon script (à placer où vous voulez tant que c'est dans le PATH)
-
 
 # Test
 
