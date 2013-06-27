@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
+# DESCRIPTION
+#   Automatic proxy opening based on sshuttle
+#
+# USAGE
+#	  proxy start username server port
+#
+# AUTHOR
+# 	Credit for the original script go to Salem Harrache's article:
+#	    http://salem.harrache.info/proxy-socks-partout.html
 
 name=proxy
 
