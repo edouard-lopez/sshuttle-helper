@@ -38,17 +38,17 @@ function start {
 
 # commandes
 case $1 in
-    start)
+  start)
     start
-    ;;
-    stop)
+  ;;
+  stop)
     stop
-    ;;
-    restart)
+  ;;
+  restart)
     stop
     start
-    ;;
-    *)
+  ;;
+  *)
     echo "usage: $(basename $0) start[ username server [port]]|stop "
     exit 1
 esac
