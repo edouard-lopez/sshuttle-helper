@@ -20,7 +20,7 @@ mkdir -p "$(dirname "$pidFile")"
 
 # Arrêt du service
 function stop {
-  if [ -f "$pidFile" ] ; then
+  if [[ -f "$pidFile" ]] ; then
     echo -n "Arrêt de $name..."
     sudo kill -9 $(cat "$pidFile")
     sudo rm "$pidFile"
