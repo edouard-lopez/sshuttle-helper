@@ -25,8 +25,8 @@ mkdir -p "$(dirname "$pidFile")"
 function stop {
   if [[ -f "$pidFile" ]] ; then
     echo "Stopping $name..."
-    kill -9 $(cat "$pidFile")
-    rm "$pidFile" && echo "OK"
+    sudo -u "$USER" kill -9 $(cat "$pidFile")
+    sudo -u "$USER" rm "$pidFile" && echo "OK"
   fi
 }
 
