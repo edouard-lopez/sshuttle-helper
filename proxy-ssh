@@ -89,7 +89,7 @@ function proxy_pid() {
   # if there is actually an apache2 process whose pid is in pidFile,
   # print it and return 0.
   if [ -e "$pidFile" ]; then
-    if pidof "proxy-ssh" | tr ' ' '\n' | grep -w $(cat $pidFile); then
+    if pidof "python" | tr ' ' '\n' | grep -w $(cat $pidFile); then
       return 0
     fi
   fi
