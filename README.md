@@ -23,7 +23,31 @@ Or from sources (on [Github](https://github.com/apenwarr/sshuttle)):
     cd sshuttle
     ./sshuttle -r [...]
 
-# Setup
+## The automatic installer… (do you trust me?)
+
+You can install this via the command line with either `curl` or `wget`.
+### via `curl`
+
+    curl -L https://github.com/edouard-lopez/sshuttle-helper.git/raw/master/install.sh | sh
+
+### via `wget`
+
+    wget --no-check-certificate https://github.com/edouard-lopez/sshuttle-helper.git/raw/master/install.sh -O - | sh
+
+## The manual way
+
+1. Clone the repository
+
+    git clone git://github.com/edouard-lopez/sshuttle-helper.git
+
+2. Copy the `proxy` file into `/etc/init.d/` :
+
+    cp ./proxy /etc/init.d/
+
+3. add the script to your System-V style init script
+
+    update-rc.d proxy defaults
+
 
 You will need to add this script's directory to your `$PATH` (in your `~/.bashrc` or `~/.zshrc`) as follows:
 
