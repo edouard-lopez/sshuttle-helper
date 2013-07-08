@@ -26,8 +26,11 @@ else
 fi
 
 # copy to System-V style init script directory
-cd sshuttle-helper
-if [ -e "$initDir/proxy-ssh" ]; then
+if [ ! -e "$initDir/proxy-ssh" ]; then
   echo "Adding init script..."
   sudo cp ./proxy-ssh /etc/init.d/
+  sudo update-rc.d proxy-ssh defaults
+else
+  sudo cp -i ./proxy-ssh /etc/init.d/
 fi
+
