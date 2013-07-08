@@ -36,7 +36,7 @@ pidFile="$HOME"/.local/var/run/$name
 mkdir -p "$(dirname "$pidFile")"
 
 # Arrêt du service
-function stop {
+function proxy_stop {
   if [[ -f "$pidFile" ]] ; then
     echo "Stopping $name..."
     sudo -u "$USER" kill -9 $(cat "$pidFile")
@@ -45,7 +45,7 @@ function stop {
 }
 
 # Démarrage du service
-function start {
+function proxy_start {
   # malformed ssh address
   [[ "$sshserver" != *@* || -z "$user" || -z "$host" ]] && usage
 
@@ -57,7 +57,7 @@ function start {
 }
 
 
-function usage() {
+function proxy_usage() {
   echo "Usage: $(basename $0) start|restart[ username@server[:port]]|stop "
   exit 1
 }
@@ -66,15 +66,15 @@ function usage() {
 # commandes
 case $1 in
   start)
-    start
+    proxy_start
   ;;
   stop)
-    stop
+    proxy_stop
   ;;
   restart)
-    stop
-    start
+    proxy_stop
+    proxy_start
   ;;
   *)
-    usage
+    proxy_usage
 esac
