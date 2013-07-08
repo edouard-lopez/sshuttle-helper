@@ -39,7 +39,7 @@ pidFile="$HOME"/.local/var/run/$name
 mkdir -p "$(dirname "$pidFile")"
 
 # Arrêt du service
-function proxy_stop {
+proxy_stop() {
   if [[ -f "$pidFile" ]] ; then
     echo "Stopping $name..."
     sudo -u "$whoAmI" kill -9 $(cat "$pidFile")
@@ -48,7 +48,7 @@ function proxy_stop {
 }
 
 # Démarrage du service
-function proxy_start {
+proxy_start() {
   # malformed ssh address
   [[ "$sshserver" != *@* || -z "$user" || -z "$host" ]] && usage
 
@@ -60,7 +60,7 @@ function proxy_start {
 }
 
 
-function proxy_status() {
+proxy_status() {
   PID=$(proxy_pid) || true
   if [ -n "$PID" ]; then
     echo "$name is running (pid $PID)."
@@ -76,18 +76,18 @@ function proxy_status() {
 }
 
 # TODO: fake it as I'm not aware a config file to 'reload'
-function proxy_reload() {
+proxy_reload() {
     proxy_stop
     proxy_start
 }
 
 
-function proxy_usage() {
+proxy_usage() {
   echo "Usage: $(basename $0) start|restart[ username@server[:port]]|stop|status "
   exit 1
 }
 
-function proxy_pid() {
+proxy_pid() {
   # if there is actually an apache2 process whose pid is in pidFile,
   # print it and return 0.
   if [ -e "$pidFile" ]; then
