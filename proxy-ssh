@@ -6,6 +6,7 @@
 #   sudo proxy-ssh start[ username@server[:port]]
 #   sudo proxy-ssh restart[ username@server[:port]]
 #   sudo proxy-ssh stop
+#   sudo proxy-ssh status
 #
 # AUTHOR
 # 	Credit for the original script go to Salem Harrache's article:
@@ -57,9 +58,35 @@ function proxy_start {
 }
 
 
+function proxy_status() {
+  PID=$(proxy_pid) || true
+  if [ -n "$PID" ]; then
+    echo "$name is running (pid $PID)."
+    exit 0
+  else
+    echo "$name is NOT running."
+  if [ -e "$PIDFILE" ]; then
+    exit 1
+  else
+    exit 3
+    fi
+  fi
+}
+
 function proxy_usage() {
-  echo "Usage: $(basename $0) start|restart[ username@server[:port]]|stop "
+  echo "Usage: $(basename $0) start|restart[ username@server[:port]]|stop|status "
   exit 1
+}
+
+function proxy_pid() {
+  # if there is actually an apache2 process whose pid is in pidFile,
+  # print it and return 0.
+  if [ -e "$pidFile" ]; then
+    if pidof "proxy-ssh" | tr ' ' '\n' | grep -w $(cat $pidFile); then
+      return 0
+    fi
+  fi
+  return 1
 }
 
 
@@ -74,6 +101,9 @@ case $1 in
   restart)
     proxy_stop
     proxy_start
+  ;;
+  status)
+    proxy_status
   ;;
   *)
     proxy_usage
