@@ -40,13 +40,13 @@ You can install this via the command line with either `curl` or `wget`.
 
     git clone git://github.com/edouard-lopez/sshuttle-helper.git
 
-2. Copy the `proxy` file into `/etc/init.d/` :
+2. Copy the `proxy-ssh` file into `/etc/init.d/` :
 
-    cp ./proxy /etc/init.d/
+    cp ./proxy-ssh /etc/init.d/
 
 3. add the script to your System-V style init script
 
-    update-rc.d proxy defaults
+    update-rc.d proxy-ssh defaults
 
 
 You will need to add this script's directory to your `$PATH` (in your `~/.bashrc` or `~/.zshrc`) as follows:
@@ -55,13 +55,13 @@ You will need to add this script's directory to your `$PATH` (in your `~/.bashrc
 
 Make it available as root
 
-    sudo ln -s /path/to/sshuttle-helper-dir/proxy /usr/local/sbin/
+    sudo ln -s /path/to/sshuttle-helper-dir/proxy-ssh /usr/local/sbin/
 
 ## Usage
 
 Quite simple :
 
-    sudo proxy start username@server[:port]
+    sudo proxy-ssh start username@server[:port]
     # default port is 22
 
 **Done**.
@@ -74,11 +74,11 @@ Quite simple :
 
 Ainsi il suffit d'un...
 
-    proxy start
-    # Starting 'proxy'...Connected.
+    proxy-ssh start
+    # Starting 'proxy-ssh'...Connected.
     # OK
 
-...pour faire passer tout le trafic par le proxy.
+...pour faire passer tout le trafic par le proxy-ssh.
 
     myip
     # yy.yy.yy.yy
