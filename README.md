@@ -83,7 +83,3 @@ Ainsi il suffit d'un...
     myip
     # yy.yy.yy.yy
 
-# Conclusion
-
-Oui..je sais, c'est un peu comme un VPN mon truc là, mais OpenVPN ça n'a jamais marché chez moi, là c'est une seule commande et ça marche du premier coup.
-
