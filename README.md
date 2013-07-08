@@ -28,11 +28,11 @@ Or from sources (on [Github](https://github.com/apenwarr/sshuttle)):
 You can install this via the command line with either `curl` or `wget`.
 ### via `curl`
 
-    curl -L https://github.com/edouard-lopez/sshuttle-helper.git/raw/master/install.sh | sh
+    curl -L https://raw.github.com/edouard-lopez/sshuttle-helper/master/install.sh | sh
 
 ### via `wget`
 
-    wget --no-check-certificate https://github.com/edouard-lopez/sshuttle-helper.git/raw/master/install.sh -O - | sh
+    wget --no-check-certificate https://raw.github.com/edouard-lopez/sshuttle-helper/master/install.sh -O - | sh
 
 ## The manual way
 
