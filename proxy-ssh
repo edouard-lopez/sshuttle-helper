@@ -36,7 +36,7 @@ function start {
   [[ "$sshserver" != *@* || -z "$user" || -z "$host" ]] && usage
 
   echo "Starting $name..."
-  sshuttle \
+  sudo -u "$USER" sshuttle \
     -r $user@$host:$port 0/0 \
     --dns -D \
     --pidfile "$pidFile" && echo "OK"

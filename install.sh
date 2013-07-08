@@ -17,4 +17,4 @@ hash git >/dev/null && /usr/bin/env git clone git://github.com/edouard-lopez/ssh
 
 # copy to System-V style init script directory
 cd sshuttle-helper
-cp ./proxy /etc/init.d/
+sudo cp ./proxy-ssh /etc/init.d/
