@@ -16,6 +16,15 @@ hash git >/dev/null && /usr/bin/env git clone git://github.com/edouard-lopez/ssh
 }
 initDir=/etc/init.d
 
+
+# Check project has been cloned
+if [ -d sshuttle-helper ]; then
+  cd sshuttle-helper
+else
+  echo "SSHuttle-helper directory missing"
+  exit 1
+fi
+
 # copy to System-V style init script directory
 cd sshuttle-helper
 if [ -e "$initDir/proxy-ssh" ]; then
