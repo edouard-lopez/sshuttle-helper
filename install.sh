@@ -34,3 +34,5 @@ else
   sudo cp -i ./proxy-ssh /etc/init.d/
 fi
 
+# add/update command to PATH directory
+sudo ln -nfs "$initDir/proxy-ssh" /usr/local/sbin/
