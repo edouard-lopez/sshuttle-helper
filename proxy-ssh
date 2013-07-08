@@ -11,6 +11,18 @@
 # 	Credit for the original script go to Salem Harrache's article:
 #	    http://salem.harrache.info/proxy-socks-partout.html
 
+
+### BEGIN INIT INFO
+# Provides:          proxy-ssh
+# Required-Start:    $local_fs $remote_fs $network $syslog $named
+# Required-Stop:     $local_fs $remote_fs $network $syslog $named
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Start/stop Transparent proxy server for VPN over SSH
+# Description:       Provide a wrapper around sshuttle
+### END INIT INFO
+
+
 name=proxy
 
 sshserver="$2"
