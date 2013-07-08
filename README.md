@@ -1,6 +1,6 @@
 ## Description
 
-`sshuttle-helper` is a script to simplify the run of `sshuttle` proxying.
+`sshuttle-helper` simplify the use of `sshuttle` by adding a LSB service to your system called `proxy-ssh`.
 
 So you can connect to a proxy socks into another server and escape from local network limitation or simply **encrypt all your communication** (only between you and the _proxy_ server).
 
