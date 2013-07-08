@@ -73,6 +73,13 @@ function proxy_status() {
   fi
 }
 
+# TODO: fake it as I'm not aware a config file to 'reload'
+function proxy_reload() {
+    proxy_stop
+    proxy_start
+}
+
+
 function proxy_usage() {
   echo "Usage: $(basename $0) start|restart[ username@server[:port]]|stop|status "
   exit 1
@@ -101,6 +108,9 @@ case $1 in
   restart)
     proxy_stop
     proxy_start
+  ;;
+  reload | force-reload | graceful)
+    proxy_reload
   ;;
   status)
     proxy_status
