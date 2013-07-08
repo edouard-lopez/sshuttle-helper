@@ -36,26 +36,22 @@ You can install this via the command line with either `curl` or `wget`.
 
 ## The manual way
 
-1. Clone the repository
+First, clone the repository:
 
     git clone git://github.com/edouard-lopez/sshuttle-helper.git
 
-2. Copy the `proxy-ssh` file into `/etc/init.d/` :
+Then, copy the `proxy-ssh` file into `/etc/init.d/` :
 
     cp ./proxy-ssh /etc/init.d/
 
-3. add the script to your System-V style init script
+Finish by add the script to your System-V style init script:
 
     update-rc.d proxy-ssh defaults
 
 
-You will need to add this script's directory to your `$PATH` (in your `~/.bashrc` or `~/.zshrc`) as follows:
+You will need to add this script's to your `sudo`'s `$PATH` as follows:
 
-    PATH="$PATH":/path/to/sshuttle-helper-dir
-
-Make it available as root
-
-    sudo ln -s /path/to/sshuttle-helper-dir/proxy-ssh /usr/local/sbin/
+    sudo ln -s /etc/init.d/proxy-ssh /usr/local/sbin/
 
 ## Usage
 
