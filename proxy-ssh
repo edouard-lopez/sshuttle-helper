@@ -23,7 +23,7 @@
 ### END INIT INFO
 
 
-name=proxy
+name="proxy-ssh"
 
 sshserver="$2"
 user="${sshserver%%@*}"
