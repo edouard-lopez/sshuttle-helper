@@ -3,7 +3,9 @@
 #   Automatic proxy opening based on sshuttle
 #
 # USAGE
-#	  sudo proxy start username server port
+#   sudo proxy-ssh start[ username@server[:port]]
+#   sudo proxy-ssh restart[ username@server[:port]]
+#   sudo proxy-ssh stop
 #
 # AUTHOR
 # 	Credit for the original script go to Salem Harrache's article:
