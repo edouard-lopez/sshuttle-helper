@@ -50,7 +50,7 @@ proxy_stop() {
 # Démarrage du service
 proxy_start() {
   # malformed ssh address
-  [[ "$sshserver" != *@* || -z "$user" || -z "$host" ]] && usage
+  [[ "$sshserver" != *@* || -z "$user" || -z "$host" ]] && proxy_usage
 
   echo "Starting $name..."
   sudo -u "$whoAmI" sshuttle \
