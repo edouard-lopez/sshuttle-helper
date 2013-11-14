@@ -33,7 +33,7 @@ server="${sshserver##*@}"
   port=${server##*:}
   port=${port:-22}
 
-whoAmI="$(logname)" # user running the service
+whoAmI="$LOGNAME" # user running the service
 
 pidFile="$HOME"/.local/var/run/$name
 mkdir -p "$(dirname "$pidFile")"
@@ -52,6 +52,7 @@ proxy_start() {
   # malformed ssh address
   [[ "$sshserver" != *@* || -z "$user" || -z "$host" ]] && proxy_usage
 
+	#-e 'ssh -i '$ssh_identity
   echo "Starting $name..."
   sudo -u "$whoAmI" sshuttle \
     -r "$user@$host:$port" 0/0 \
