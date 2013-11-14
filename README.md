@@ -42,11 +42,11 @@ First, clone the repository:
 
 Then, copy the `proxy-ssh` file into `/etc/init.d/` :
 
-    cp ./proxy-ssh /etc/init.d/
+    sudo cp ./proxy-ssh /etc/init.d/
 
 Finish by add the script to your System-V style init script:
 
-    update-rc.d proxy-ssh defaults
+    sudo update-rc.d proxy-ssh defaults
 
 
 You will need to add this script's to your `sudo`'s `$PATH` as follows:
