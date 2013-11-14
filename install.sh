@@ -8,11 +8,11 @@
 # AUTHOR
 #   Édouard Lopez
 
+repo="git://github.com/edouard-lopez/sshuttle-helper.git"
 initDir=/etc/init.d
 
 # clone
-echo "\033[0;34mCloning SSHuttle-helper...\033[0m"
-hash git >/dev/null && /usr/bin/env git clone git://github.com/edouard-lopez/sshuttle-helper.git || {
+hash git >/dev/null && /usr/bin/env git clone "$repo" || {
   echo "git not installed"
   exit
 }
