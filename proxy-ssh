@@ -54,10 +54,12 @@ proxy_start() {
 
 	#-e 'ssh -i '$ssh_identity
   echo "Starting $name..."
-  sudo -u "$whoAmI" sshuttle \
-    -r "$user@$host:$port" 0/0 \
-    --dns -D \
-    --pidfile "$pidFile" && echo "OK"
+  sshuttleArgs=(
+    -r "$user@$host:$port" 0/0
+    --dns -D
+    --pidfile "$pidFile"
+  )
+  sudo -u "$whoAmI" sshuttle "${sshuttleArgs[@]}" && echo "OK"
 }
 
 
