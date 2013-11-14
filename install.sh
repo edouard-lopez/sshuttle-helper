@@ -8,14 +8,14 @@
 # AUTHOR
 #   Édouard Lopez
 
+initDir=/etc/init.d
+
 # clone
 echo "\033[0;34mCloning SSHuttle-helper...\033[0m"
 hash git >/dev/null && /usr/bin/env git clone git://github.com/edouard-lopez/sshuttle-helper.git || {
   echo "git not installed"
   exit
 }
-initDir=/etc/init.d
-
 
 # Check project has been cloned
 if [ -d sshuttle-helper ]; then
